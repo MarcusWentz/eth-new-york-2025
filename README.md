@@ -83,3 +83,14 @@ Hook deployment failures are caused by incorrect flags or incorrect salt mining
 - [v4-periphery](https://github.com/uniswap/v4-periphery)
 - [v4-core](https://github.com/uniswap/v4-core)
 - [v4-by-example](https://v4-by-example.org)
+
+### Deploy ChainlinkEthVolatilityIndex30Day.sol on Arbitrum Sepolia
+
+```shell
+forge create src/ChainlinkEthVolatilityIndex30Day.sol:ChainlinkEthVolatilityIndex30Day \
+--private-key $devTestnetPrivateKey \
+--rpc-url $arbitrumSepoliaHTTPS  \
+--etherscan-api-key $arbiscanApiKey \
+--broadcast \
+--verify 
+```

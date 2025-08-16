@@ -1,7 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.30;
+pragma solidity 0.8.28;
 
-import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+// @notice Remix IDE import
+// import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+// @dev "forge install smartcontractkit/chainlink-brownie-contracts" 
+// and set custom "chainlink" remapping:
+// "chainlink/=lib/chainlink-brownie-contracts/contracts/src/"
+import {AggregatorV3Interface} from "chainlink/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 contract ChainlinkEthVolatilityIndex30Day {
     AggregatorV3Interface internal dataFeed;
