@@ -1,19 +1,31 @@
-import type { AppKitNetwork } from "@reown/appkit/networks";
-import { mainnet } from "@reown/appkit/networks";
-import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
+import { defineChain } from "viem";
+import { createConfig, http } from "wagmi";
 
-// note for broken window-- we not usin appkit atm
-export const projectId = import.meta.env.VITE_PROJECT_ID;
+export const unichainSepolia = defineChain({
+	id: 1301,
+	name: "Unichain Sepolia",
+	nativeCurrency: {
+		decimals: 18,
+		name: "Ether",
+		symbol: "ETH",
+	},
+	rpcUrls: {
+		default: {
+			http: ["https://unichain-sepolia.drpc.org"],
+		},
+	},
+	blockExplorers: {
+		default: {
+			name: "Unichain Sepolia Explorer",
+			url: "https://unichain-sepolia.blockscout.com",
+		},
+	},
+	testnet: true,
+});
 
-// also todo.. name this??
-export const metadata = {
-	name: "",
-	description: "",
-	url: "",
-	icons: "",
-};
-
-export const networks = [mainnet] as [AppKitNetwork, ...AppKitNetwork[]];
-export const wagmiAdapter = new WagmiAdapter({ projectId, networks });
-
-export const config = wagmiAdapter.wagmiConfig;
+export const config = createConfig({
+	chains: [unichainSepolia],
+	transports: {
+		[unichainSepolia.id]: http("https://unichain-sepolia.drpc.org"),
+	},
+});
