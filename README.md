@@ -94,7 +94,11 @@ Hook deployment failures are caused by incorrect flags or incorrect salt mining
 - [v4-core](https://github.com/uniswap/v4-core)
 - [v4-by-example](https://v4-by-example.org)
 
-### Deploy EthRealizedVolatility.sol on Arbitrum Sepolia
+## Forge Deploy and Verify  
+
+### Arbitrum Sepolia 
+
+#### Deploy EthRealizedVolatility.sol 
 
 ```shell
 forge create src/EthRealizedVolatility.sol:EthRealizedVolatility \
@@ -105,10 +109,35 @@ forge create src/EthRealizedVolatility.sol:EthRealizedVolatility \
 --verify 
 ```
 
-### Deploy EthUsd.sol on Unichain Sepolia
+#### Deploy LayerZeroArbToUniOApp.sol
+
+```shell
+forge create src/LayerZeroArbToUniOApp.sol:LayerZeroArbToUniOApp \
+--private-key $devTestnetPrivateKey \
+--rpc-url $arbitrumSepoliaHTTPS  \
+--etherscan-api-key $arbiscanApiKey \
+--broadcast \
+--verify 
+```
+
+### Unichain Sepolia
+
+### EthUsd.sol
 
 ```shell
 forge create src/EthUsd.sol:EthUsd \
+--private-key $devTestnetPrivateKey \
+--rpc-url https://sepolia.unichain.org \
+--verify \
+--verifier blockscout \
+--verifier-url https://unichain-sepolia.blockscout.com/api/ \
+--broadcast
+```
+
+### LayerZeroUniToArbOApp.sol
+
+```shell
+forge create src/LayerZeroUniToArbOApp.sol:LayerZeroUniToArbOApp \
 --private-key $devTestnetPrivateKey \
 --rpc-url https://sepolia.unichain.org \
 --verify \
@@ -123,15 +152,27 @@ forge create src/EthUsd.sol:EthUsd \
 forge verify-contract \
 --rpc-url https://sepolia.unichain.org \
 <contract_address> \
-src/EthUsd.sol:EthUsd \
+<contract_file_path> \
 --verifier blockscout \
 --verifier-url https://unichain-sepolia.blockscout.com/api/
 ```
 
-### Arbitrum Sepolia EthRealizedVolatility.sol 
+### Arbitrum Sepolia Deployments
+
+#### EthRealizedVolatility.sol 
 
 https://sepolia.arbiscan.io/address/0xeef4f98dd12fcc6193ccce792f3983803d0b56ed#code
 
-### Unichain Sepolia EthUsd.sol 
+#### LayerZeroArbToUniOApp.sol
+
+https://sepolia.arbiscan.io/address/0xc26ea02fb53594952b64559278bd0622555584e4#code
+
+### Unichain Sepolia Deployments
+
+#### EthUsd.sol 
 
 https://unichain-sepolia.blockscout.com/address/0xE00fAe47783A593f3975A13Dec9D957A437d1118?tab=contract
+
+#### LayerZeroUniToArbOApp.sol
+
+???
