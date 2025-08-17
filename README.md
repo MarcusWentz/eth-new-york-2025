@@ -94,10 +94,10 @@ Hook deployment failures are caused by incorrect flags or incorrect salt mining
 - [v4-core](https://github.com/uniswap/v4-core)
 - [v4-by-example](https://v4-by-example.org)
 
-### Deploy EthVolatility.sol on Arbitrum Sepolia
+### Deploy EthRealizedVolatility.sol on Arbitrum Sepolia
 
 ```shell
-forge create src/EthVolatility.sol:EthVolatility \
+forge create src/EthRealizedVolatility.sol:EthRealizedVolatility \
 --private-key $devTestnetPrivateKey \
 --rpc-url $arbitrumSepoliaHTTPS  \
 --etherscan-api-key $arbiscanApiKey \
@@ -128,7 +128,7 @@ src/EthUsd.sol:EthUsd \
 --verifier-url https://unichain-sepolia.blockscout.com/api/
 ```
 
-### Arbitrum Sepolia EthVolatility.sol 
+### Arbitrum Sepolia EthRealizedVolatility.sol 
 
 https://sepolia.arbiscan.io/address/0xeef4f98dd12fcc6193ccce792f3983803d0b56ed#code
 
