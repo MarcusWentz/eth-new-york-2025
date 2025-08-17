@@ -179,4 +179,4 @@ https://unichain-sepolia.blockscout.com/address/0x5eCe667D03F29695937F23178aBad9
 
 ### LayerZero Bridge Communication
 
-https://testnet.layerzeroscan.com/tx/0xb972172c6059f079792fd9e89f079126d40dcf6778d6ac167a119784fc9bd0be
+https://testnet.layerzeroscan.com/tx/0xba24eade9471711df2e5f143b4af3c5da859fd36dc3be7b6b2a0834252ae4cc7
