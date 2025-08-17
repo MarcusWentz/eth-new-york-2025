@@ -1,30 +1,14 @@
-import { useEffect } from "react";
 import "./App.css";
-import { useDeribitVolatility } from "./hooks/useDeribitVolatility";
+import { useVolatility } from "./hooks/useVolatility";
+import { VolatilityChart } from "./components/VolatilityChart";
 
 function App() {
-	// Using timestamps from your curl example
-	const startTimestamp = 1719870000000; // July 1, 2024
-	const endTimestamp = 1720060000000;   // July 3, 2024
-
-	const { data, isLoading, error, isError } = useDeribitVolatility({
+	const { data, isLoading, isError } = useVolatility({
 		currency: 'ETH',
-		startTimestamp,
-		endTimestamp,
-		resolution: 86400, // 1 day
+		days: 1095,
 	});
 
-	useEffect(() => {
-		if (data) {
-			console.log('Deribit Volatility Data:', data);
-		}
-	}, [data]);
 
-	useEffect(() => {
-		if (isError && error) {
-			console.error('Error fetching Deribit data:', error);
-		}
-	}, [isError, error]);
 
 	return (
 		<>
@@ -34,9 +18,10 @@ function App() {
 			<main>
 				<div className="ellipsis" />
 				<section>
-					{isLoading && <p>Loading volatility data...</p>}
-					{isError && <p>Error loading data - check console</p>}
-					{data && <p>Data loaded - check console for details</p>}
+					<h1>ETH Volatility Index</h1>
+					{isLoading && <p className="loadingText">Loading volatility data...</p>}
+					{isError && <p className="errorText">Error loading data - check console</p>}
+					{data && <VolatilityChart data={data} height={500} />}
 				</section>
 			</main>
 			<footer>
