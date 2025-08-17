@@ -1,8 +1,18 @@
-# Uniswap v4 Hook Template
+# ⛓️ Cross-Chain Volatility Hook 🪝
+Dynamic fee Uniswap v4 Hook using cross-chain Chainlink volatility data via LayerZero
 
-**A template for writing Uniswap v4 Hooks 🦄**
+**Summary:** This project implements a Uniswap v4 hook that dynamically adjusts trading fees based on real-time volatility data sourced from multiple blockchains. By leveraging Chainlink's price feeds on Arbitrum and transmitting this data via LayerZero's cross-chain messaging protocol, the hook creates a more responsive and risk-adjusted fee structure for liquidity providers.
 
-### Get Started
+**Technical Architecture:** The system consists of three core components: a data ingestion contract on Arbitrum that reads Chainlink's ETH-USD 30-Day Realized Vol metric, a LayerZero bridge integration that securely transmits volatility data across chains with minimal latency, and a Uniswap v4 hook contract that receives cross-chain volatility updates and implements dynamic fee adjustments in the beforeSwap function.
+
+## ETHGlobal NYC August 2025 Team
+[Marcus Wentz](https://github.com/MarcusWentz)
+[Dina Deljanin](https://github.com/dinadeljanin)
+[Mylo Bennett](https://github.com/readyMouse)
+
+
+## Leveraging the Uniswap v4 Hook Template
+(original template README below)
 
 This template provides a starting point for writing Uniswap v4 Hooks, including a simple example and preconfigured test environment. Start by creating a new repository using the "Use this template" button at the top right of this page. Alternatively you can also click this link:
 
