@@ -166,25 +166,6 @@ forge script script/00_DeployHook.s.sol:DeployHookScript \
 --broadcast 
 ```
 
-#### Verify Uniswap V4 Hook Contract Already Deployed
-
-Use the `contractAddress` from CREATE2 from
-
-```
-broadcast/00_DeployHook.s.sol/1301/run-latest.json
-```
-
-then run
-
-```shell
-forge verify-contract \
---rpc-url https://sepolia.unichain.org \
-<contract_address> \
-src/Counter.sol:Counter \
---verifier blockscout \
---verifier-url https://unichain-sepolia.blockscout.com/api/
-```
-
 ### Arbitrum Sepolia Deployments
 
 #### EthRealizedVolatility.sol 
@@ -206,8 +187,6 @@ https://unichain-sepolia.blockscout.com/address/0xE00fAe47783A593f3975A13Dec9D95
 https://unichain-sepolia.blockscout.com/address/0x5eCe667D03F29695937F23178aBad9B89434D630?tab=contract
 
 #### Hook Counter.sol
-
-https://unichain-sepolia.blockscout.com/address/0xe802507CEF5511C4A1577d829C03870B5fbAcaC0?tab=contract
 
 ### LayerZero Bridge Communication
 
