@@ -8,10 +8,10 @@ pragma solidity 0.8.28;
 // "chainlink/=lib/chainlink-brownie-contracts/contracts/src/"
 import {AggregatorV3Interface} from "chainlink/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
-contract EthVolatility {
+contract EthRealizedVolatility {
     AggregatorV3Interface internal dataFeed;
 
-    // Data feed on Arbitrum Sepolia
+    // Data feed on Arbitrum Sepolia for Ethereum volatility over 30 days 
     // https://docs.chain.link/data-feeds/rates-feeds/addresses?page=1&testnetPage=1&network=arbitrum
     constructor() {
         dataFeed = AggregatorV3Interface(
