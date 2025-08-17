@@ -5,6 +5,7 @@ import {Hooks} from "@uniswap/v4-core/src/libraries/Hooks.sol";
 import {HookMiner} from "@uniswap/v4-periphery/src/utils/HookMiner.sol";
 
 import {BaseScript} from "./base/BaseScript.sol";
+import {Constants} from "./base/Constants.sol";
 
 import {Counter} from "../src/Counter.sol";
 
@@ -20,7 +21,7 @@ contract DeployHookScript is BaseScript {
         // Mine a salt that will produce a hook address with the correct flags
         bytes memory constructorArgs = abi.encode(poolManager);
         (address hookAddress, bytes32 salt) =
-            HookMiner.find(CREATE2_FACTORY, flags, type(Counter).creationCode, constructorArgs);
+            HookMiner.find(Constants.CREATE2_FACTORY, flags, type(Counter).creationCode, constructorArgs);
 
         // Deploy the hook using CREATE2
         vm.startBroadcast();
