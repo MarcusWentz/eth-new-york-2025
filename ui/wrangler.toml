@@ -1,0 +1,6 @@
+name = "volatility-api"
+main = "worker/index.js"
+compatibility_date = "2024-01-15"
+
+[env.production]
+name = "volatility-api"

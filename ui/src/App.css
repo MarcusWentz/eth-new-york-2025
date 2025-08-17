@@ -1,6 +1,5 @@
 :root {
-	/* pick diff font families */
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: "DM Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -11,16 +10,11 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	/* palette */
-	--background: #ffffff;
-	--uniswapPink: #fc72ff;
+	--background: #231924;
+	--uniswapPink: #FF19A2;
 	--uniswapPink300: color-mix(in srgb, var(--uniswapPink) 30%, transparent);
 	--foreground: #171717;
-	/* secondary colors
- 		#7cdfd3 - mint 
-		#ccb6fc - lavender
-		#dffa88 - citrine
-	*/
+	
 }
 
 * {
@@ -38,7 +32,7 @@ body {
 body {
 	color: var(--foreground);
 	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "DM Sans", Arial, Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	> div:first-of-type {
@@ -100,12 +94,17 @@ main {
 		box-sizing: border-box;
 		margin: 0 auto;
 		padding: 1rem;
+		gap: 1rem;
 		align-items: center;
 		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+		flex-direction: column;
+		justify-content: center;
 		border-right: 2px solid var(--uniswapPink300);
 		border-left: 2px solid var(--uniswapPink300);
+		h1 {
+			color: #fff;
+			font-size: 2rem;
+		}
 	}
 }
 
@@ -162,4 +161,69 @@ footer {
 	box-sizing: border-box;
 	border-radius: 50%;
 	pointer-events: none;
+}
+
+.volatilityChart {
+	background-color: #2d1f2c;
+	background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+	background-size: 10px 10px;
+	border: 1px solid #483347;
+	border-radius: 1rem;
+	box-sizing: border-box;
+	padding: 1rem;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	nav {
+		position: absolute;
+		top: 1.5rem;
+		left: 1.5rem;
+		z-index: 10;
+		display: flex;
+		gap: 1px;
+		pointer-events: auto;
+		
+		button {
+			background: var(--uniswapPink);
+			border: none;
+			color: white;
+			padding: 10px 0;
+			width: 50px;
+			font-size: 13px;
+			cursor: pointer;
+			font-family: "DM Sans", Arial, Helvetica, sans-serif;
+			transition: all 0.3s ease;
+			border-radius: 0;
+			font-weight: 500;
+			
+			&:hover {
+				border-radius: 7px;
+			}
+			
+			&.active {
+				border-radius: 10px;
+			}
+		}
+	}
+	
+	figure {
+		width: 100%;
+		border-radius: 12px;
+		overflow: hidden;
+		box-sizing: border-box;
+		border: 1px solid #483347;
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.loadingText, .errorText {
+	text-align: center;
+	font-size: 18px;
+	color: var(--foreground);
+}
+
+.errorText {
+	color: #ff6b6b;
 }
