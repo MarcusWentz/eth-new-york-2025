@@ -8,14 +8,14 @@ pragma solidity 0.8.28;
 // "chainlink/=lib/chainlink-brownie-contracts/contracts/src/"
 import {AggregatorV3Interface} from "chainlink/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
-contract ChainlinkEthVolatilityIndex30Day {
+contract EthUsd {
     AggregatorV3Interface internal dataFeed;
 
-    // Data feed on Arbitrum Sepolia
-    // https://docs.chain.link/data-feeds/rates-feeds/addresses?page=1&testnetPage=1&network=arbitrum
+    // Data feed on Unichain Sepolia
+    // https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&testnetPage=1&network=unichain
     constructor() {
         dataFeed = AggregatorV3Interface(
-            0x0829a75e62c493409983fDa7098626beAD012862
+            0xd9c93081210dFc33326B2af4C2c11848095E6a9a
         );
     }
 
