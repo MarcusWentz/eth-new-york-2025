@@ -9,8 +9,14 @@ import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
 import {PoolId, PoolIdLibrary} from "@uniswap/v4-core/src/types/PoolId.sol";
 import {BalanceDelta} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
 import {BeforeSwapDelta, BeforeSwapDeltaLibrary} from "@uniswap/v4-core/src/types/BeforeSwapDelta.sol";
+import {EthUsd} from "src/EthUsd.sol";
 
-contract Counter is BaseHook {
+interface ICounter {
+    error ethUsdPriceTooLow();
+}
+
+contract Counter is BaseHook, EthUsd, ICounter {
+
     using PoolIdLibrary for PoolKey;
 
     // NOTE: ---------------------------------------------------------
@@ -54,6 +60,9 @@ contract Counter is BaseHook {
         override
         returns (bytes4, BeforeSwapDelta, uint24)
     {
+        int256 ethUsdValueMin = 0;
+        // EthUsd.sol inherited function.
+        if(ethUsdValueMin > getEthUsdChainlinkDataFeedLatestAnswer()) revert ethUsdPriceTooLow();
         beforeSwapCount[key.toId()]++;
         return (BaseHook.beforeSwap.selector, BeforeSwapDeltaLibrary.ZERO_DELTA, 0);
     }

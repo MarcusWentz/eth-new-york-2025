@@ -19,7 +19,7 @@ contract EthUsd {
         );
     }
 
-    function getChainlinkDataFeedLatestAnswer() public view returns (int) {
+    function getEthUsdChainlinkDataFeedLatestAnswer() public view returns (int) {
         (
             /* uint80 roundId */,
             int256 answer,

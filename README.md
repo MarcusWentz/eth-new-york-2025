@@ -188,8 +188,6 @@ https://unichain-sepolia.blockscout.com/address/0x5eCe667D03F29695937F23178aBad9
 
 #### Hook Counter.sol
 
-https://unichain-sepolia.blockscout.com/address/0x20497b2A3c00f26faACca9cB202a426E0DEccAC0?tab=contract
-
 ### LayerZero Bridge Communication
 
 https://testnet.layerzeroscan.com/tx/0xba24eade9471711df2e5f143b4af3c5da859fd36dc3be7b6b2a0834252ae4cc7
