@@ -157,6 +157,15 @@ forge verify-contract \
 --verifier-url https://unichain-sepolia.blockscout.com/api/
 ```
 
+### Hook Counter.sol
+
+```shell
+forge script script/00_DeployHook.s.sol:DeployHookScript \
+--private-key $devTestnetPrivateKey \
+--rpc-url https://sepolia.unichain.org \
+--broadcast 
+```
+
 ### Arbitrum Sepolia Deployments
 
 #### EthRealizedVolatility.sol 
@@ -176,6 +185,10 @@ https://unichain-sepolia.blockscout.com/address/0xE00fAe47783A593f3975A13Dec9D95
 #### LayerZeroUniToArbOApp.sol
 
 https://unichain-sepolia.blockscout.com/address/0x5eCe667D03F29695937F23178aBad9B89434D630?tab=contract
+
+#### Hook Counter.sol
+
+https://unichain-sepolia.blockscout.com/address/0x20497b2A3c00f26faACca9cB202a426E0DEccAC0?tab=contract
 
 ### LayerZero Bridge Communication
 
